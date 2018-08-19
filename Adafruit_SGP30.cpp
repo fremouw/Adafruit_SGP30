@@ -56,13 +56,12 @@ boolean Adafruit_SGP30::begin(TwoWire *theWire) {
   _i2caddr = SGP30_I2CADDR_DEFAULT;
   if (theWire == NULL) {
     _i2c = &Wire;
+
+    _i2c->begin();
   } else {
     _i2c = theWire;
   }
 
-  _i2c->begin();
-
-  
   uint8_t command[2];
   command[0] = 0x36;
   command[1] = 0x82;
