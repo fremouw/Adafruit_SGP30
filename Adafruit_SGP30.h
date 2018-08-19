@@ -21,6 +21,9 @@
 #include "Arduino.h"
 #include <Wire.h>
 
+#ifndef ADAFRUIT_SGP_H_
+#define ADAFRUIT_SGP_H_
+
 // the i2c address
 #define SGP30_I2CADDR_DEFAULT 0x58     ///< SGP30 has only one I2C address
 
@@ -67,3 +70,5 @@ class Adafruit_SGP30 {
   boolean readWordFromCommand(uint8_t command[], uint8_t commandLength, uint16_t delay, uint16_t *readdata = NULL, uint8_t readlen = 0);
   uint8_t generateCRC(uint8_t data[], uint8_t datalen);
 };
+
+#endif // ADAFRUIT_SGP_H_
